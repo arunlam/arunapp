@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
           initialRoute: '/',
           debugShowCheckedModeBanner: false,
           onGenerateRoute: generateRoutes,
+          home: Home(),
         );
       },
     );

@@ -24,7 +24,7 @@ class ThemeProvider with ChangeNotifier {
       isDark ? getThemeByType(Themes.dark) : getThemeByType(Themes.light);
 
   set setThemeData(bool val) {
-    isDark = val;
+    isDark = val ? true : false;
     notifyListeners();
   }
 }
