@@ -1,5 +1,8 @@
+import 'package:arunapp/config/menu_state.dart';
 import 'package:arunapp/widgets/header.dart';
+import 'package:arunapp/widgets/top_menu_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -28,10 +31,14 @@ class _HomeState extends State<Home> {
 
   Widget _dashboard(context) {
     return SafeArea(
-      child: Column(
-        children: <Widget>[
-          HeaderWidget(),
-        ],
+      child: ChangeNotifierProvider<MenuState>(
+        create: (_) => MenuState(),
+        child: Column(
+          children: <Widget>[
+            HeaderWidget(),
+            TopMenu(),
+          ],
+        ),
       ),
     );
   }
