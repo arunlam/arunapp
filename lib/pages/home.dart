@@ -1,7 +1,5 @@
-import 'package:custom_switch/custom_switch.dart';
+import 'package:arunapp/widgets/header.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../config/app_theme.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -29,26 +27,10 @@ class _HomeState extends State<Home> {
   }
 
   Widget _dashboard(context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
-    bool isDark = themeProvider.isDark;
-
     return SafeArea(
       child: Column(
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text('Home'),
-              Switch(
-                  value: isDark,
-                  onChanged: (value) {
-                    setState(() {
-                      themeProvider.setThemeData = value;
-                      isDark = !isDark;
-                    });
-                  })
-            ],
-          )
+          HeaderWidget(),
         ],
       ),
     );

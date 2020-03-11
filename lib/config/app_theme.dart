@@ -1,5 +1,18 @@
 import 'package:flutter/material.dart';
 
+class ThemeProvider with ChangeNotifier {
+  bool isDark;
+  ThemeProvider({this.isDark});
+
+  ThemeData get getThemeData =>
+      isDark ? getThemeByType(Themes.dark) : getThemeByType(Themes.light);
+
+  set setThemeData(bool val) {
+    isDark = val;
+    notifyListeners();
+  }
+}
+
 enum Themes { light, dark }
 
 ThemeData getThemeByType(Themes type) {
@@ -12,19 +25,5 @@ ThemeData getThemeByType(Themes type) {
       return ThemeData(
         brightness: Brightness.light,
       );
-  }
-}
-
-class ThemeProvider with ChangeNotifier {
-  bool isDark;
-
-  ThemeProvider({this.isDark});
-
-  ThemeData get getThemeData =>
-      isDark ? getThemeByType(Themes.dark) : getThemeByType(Themes.light);
-
-  set setThemeData(bool val) {
-    isDark = val;
-    notifyListeners();
   }
 }
