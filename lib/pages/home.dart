@@ -1,6 +1,6 @@
+import 'package:custom_switch/custom_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../blocs/bloc_theme.dart';
 import '../config/app_theme.dart';
 
 class Home extends StatefulWidget {
@@ -12,7 +12,11 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    themeBloc.changeTheme(Themes.dark);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
@@ -27,6 +31,7 @@ class _HomeState extends State<Home> {
   Widget _dashboard(context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     bool isDark = themeProvider.isDark;
+
     return SafeArea(
       child: Column(
         children: <Widget>[
@@ -36,9 +41,11 @@ class _HomeState extends State<Home> {
               Text('Home'),
               Switch(
                   value: isDark,
-                  onChanged: (val) {
-                    themeProvider.setThemeData = val;
-                    // isDark = !isDark;
+                  onChanged: (value) {
+                    setState(() {
+                      themeProvider.setThemeData = value;
+                      isDark = !isDark;
+                    });
                   })
             ],
           )
