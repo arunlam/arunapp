@@ -39,25 +39,57 @@ class _HomeState extends State<Home> {
     Size _size = MediaQuery.of(context).size;
 
     return SafeArea(
-      child: ChangeNotifierProvider<MenuState>(
-        create: (_) => MenuState(),
-        child: Column(
-          children: <Widget>[
-            HeaderWidget(),
-            TopMenu(),
-            CardSwiper(
-              size: _size,
-              scrollDirection: Axis.vertical,
-              layout: SwiperLayout.STACK,
-              viewpointFraction: 0.8,
-              scale: 0.9,
-              padding: 16.0,
-              heightFraction: 0.6,
-              color: green,
-              list: Menus.menuList,
+      child: Column(
+        children: <Widget>[
+          HeaderWidget(),
+          TopMenu(),
+          Expanded(
+            child: Container(
+              width: _size.width,
+              // height: _size.height * 0.7,
+              // color: white,
+              child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text('Content'),
+                ),
+              ),
             ),
-          ],
-        ),
+          ),
+
+          // CardSwiper(screenSize: _size),
+
+          Container(
+              width: _size.width,
+              height: 50,
+              child: Padding(
+                padding: const EdgeInsets.all(0.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(Icons.home),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.timeline),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.timer),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.settings),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              )),
+          //
+          //
+        ],
       ),
     );
   }

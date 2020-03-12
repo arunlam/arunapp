@@ -7,7 +7,7 @@ import 'config/routes.dart';
 
 void main() => runApp(
       ChangeNotifierProvider(
-        create: (_) => ThemeProvider(isDark: false),
+        create: (_) => ThemeProvider(isDark: true),
         child: MyApp(),
       ),
     );
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Krom App',
+      title: 'SportiUP',
       theme: Provider.of<ThemeProvider>(context).getThemeData,
       initialRoute: NavigationConstrants.HOME,
       onGenerateRoute: generateRoutes,

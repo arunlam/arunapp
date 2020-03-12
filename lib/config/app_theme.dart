@@ -28,6 +28,25 @@ ThemeData getThemeByType(Themes type) {
   }
 }
 
+final darkTheme = ThemeData(
+  primarySwatch: grey,
+  primaryColor: black,
+  brightness: Brightness.dark,
+  backgroundColor: HexColor('000000'),
+  accentColor: white,
+  accentIconTheme: IconThemeData(color: black),
+  dividerColor: black54,
+);
+final lightTheme = ThemeData(
+  primarySwatch: grey,
+  primaryColor: white,
+  brightness: Brightness.light,
+  backgroundColor: HexColor('E5E5E5'),
+  accentColor: black,
+  accentIconTheme: IconThemeData(color: white),
+  dividerColor: white54,
+);
+
 /* CONSTRAINT */
 /* COLORS */
 const white = Colors.white;

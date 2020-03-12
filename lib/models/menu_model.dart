@@ -10,7 +10,7 @@ class Menus {
   Menus({this.title, this.id, this.imgPath = '', this.color = Colors.green});
 
   static List<Menus> menuList = [
-    Menus(title: 'Dashboard', id: 1, color: green[200]),
+    Menus(title: 'Dashboard', id: 1, color: green),
     Menus(title: 'Schedule', id: 2, color: blue),
     Menus(title: 'Sports', id: 3, color: yellow),
     Menus(title: 'Arena', id: 4, color: pink),

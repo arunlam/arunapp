@@ -4,57 +4,38 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 class CardSwiper extends StatelessWidget {
-  final Size size;
-  final SwiperLayout layout;
-  final Axis scrollDirection;
-  final double viewpointFraction;
-  final double scale;
-  final Widget child;
-  final List list;
-  final double padding;
-  final double heightFraction;
-  final Color color;
-  final double borderRadius;
+  final Size screenSize;
 
-  const CardSwiper(
-      {Key key,
-      this.size,
-      this.layout,
-      this.scrollDirection,
-      this.viewpointFraction,
-      this.scale,
-      this.child,
-      this.list,
-      this.padding = 8.0,
-      this.heightFraction = 0.5,
-      this.color,
-      this.borderRadius = 8.0})
-      : super(key: key);
+  const CardSwiper({
+    Key key,
+    this.screenSize,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double _padding = 16.0;
     return SizedBox(
       // width: size.width - (padding * 2),
-      height: size.height * heightFraction - 32,
+      height: (screenSize.height * 0.6) - (_padding * 2),
       child: Swiper(
         outer: true,
-        itemHeight: (size.height * 0.6) - (padding * 6),
-        itemWidth: size.width - (padding * 2),
+        itemHeight: (screenSize.height * 0.6) - (_padding * 6),
+        itemWidth: screenSize.width - (_padding * 2),
         onIndexChanged: (int index) {
-          print('${index}');
+          print('$index');
         },
-        onTap: (int index) {},
-        itemCount: list.length,
-        layout: layout,
-        scrollDirection: scrollDirection,
-        viewportFraction: viewpointFraction,
-        scale: scale,
+        onTap: (int index) {
+          print('$index');
+        },
+        itemCount: Menus.menuList.length,
+        layout: SwiperLayout.STACK,
+        scrollDirection: Axis.vertical,
+        viewportFraction: 0.7,
+        scale: 0.5,
         itemBuilder: (BuildContext context, int index) {
           return Stack(
             children: <Widget>[
               Container(
-                // width: size.width,
-                // height: size.height,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16.0),
                   color: white54,
@@ -63,8 +44,8 @@ class CardSwiper extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(3.0),
                 child: Container(
-                  width: size.width - 32,
-                  height: size.height - 32,
+                  width: screenSize.width - (_padding * 2),
+                  height: (screenSize.height * 0.6) - (_padding * 6),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16.0),
                     color: Menus.menuList[index].color,

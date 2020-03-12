@@ -16,9 +16,8 @@ class MenuItem extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        if (!isSelected) {
-          menuState.updateSelectedId(menu.id);
-        }
+        if (!isSelected) menuState.updateSelectedId(menu.id);
+        print('${menu.id}');
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -30,9 +29,7 @@ class MenuItem extends StatelessWidget {
                 menu.title,
                 style: isSelected
                     ? menuStyle.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: green,
-                      )
+                        fontWeight: FontWeight.bold, color: green)
                     : menuStyle.copyWith(fontStyle: FontStyle.italic),
               ),
             ),
@@ -41,9 +38,7 @@ class MenuItem extends StatelessWidget {
                 child: Container(
                   width: 8,
                   height: 8,
-                  decoration: BoxDecoration(
-                    color: green,
-                  ),
+                  decoration: BoxDecoration(color: green),
                 ),
               ),
           ],

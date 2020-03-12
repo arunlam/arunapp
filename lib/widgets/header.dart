@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'rounded_widget.dart';
 import '../config/app_theme.dart';
 
-final String appName = 'Sport Voraman';
+final String appName = 'Sportie Voraman';
 
 class HeaderWidget extends StatefulWidget {
   @override
